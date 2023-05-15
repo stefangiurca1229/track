@@ -1,0 +1,42 @@
+{
+    "name": "Browser Track",
+    "version": "1.0",
+    "description": "I'm here to make your job",
+    "permissions": [
+        "tabs",
+        "clipboardWrite",
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+      ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }],
+        "content_security_policy": {
+            "extension_pages": "script-src 'self'; object-src 'self'"
+        },
+        "manifest_version": 3,
+        "action": {
+            "default_icon": {
+                "16": "assets/horse.png",
+                "32": "assets/horse.png",
+                "48": "assets/horse.png",
+                "128": "assets/horse.png"
+            },
+            "default_popup": "index.html"
+        }
+    }
